@@ -7,7 +7,9 @@ import {
   Clock,
   CircleDollarSign,
   UserCircle2,
-  LogOut
+  LogOut,
+  Menu,
+  X
 } from 'lucide-react';
 
 import { setCurrency, openAddEmployeeDrawer } from '../slices/uiSlice';
@@ -95,6 +97,7 @@ export const Header = () => {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
 
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleCurrencyChange = (e) => {
     const newCurrency = e.target.value;
@@ -130,42 +133,50 @@ export const Header = () => {
                 <span className="hidden sm:inline">HR Login</span>
               </button>
             )}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-md hover:bg-slate-700 transition-colors"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
 
         {/* BOTTOM BAR: Stats and Controls */}
-        <div className="w-full p-4 border-t border-slate-700/50">
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6">
-            {/* Stats Section */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4">
-              <InfoBox icon={Users} title="Total Headcount" value={status === 'loading' ? '...' : summary?.totalHeadCount ?? 'N/A'} />
-              <InfoBox icon={Clock} title="Billable Hours/Month" value={status === 'loading' ? '...' : summary?.totalBillableHours ?? 'N/A'} />
-              <InfoBox icon={CircleDollarSign} title="Monthly Burn" value={status === 'loading' ? '...' : formatCurrency(summary?.totalMonthlyCost ?? 0)} />
-            </div>
+        {(isMenuOpen || window.innerWidth >= 768) && (
+          <div className="w-full p-4 border-t border-slate-700/50">
+            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6">
+              {/* Stats Section */}
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4">
+                <InfoBox icon={Users} title="Total Headcount" value={status === 'loading' ? '...' : summary?.totalHeadCount ?? 'N/A'} />
+                <InfoBox icon={Clock} title="Billable Hours/Month" value={status === 'loading' ? '...' : summary?.totalBillableHours ?? 'N/A'} />
+                <InfoBox icon={CircleDollarSign} title="Monthly Burn" value={status === 'loading' ? '...' : formatCurrency(summary?.totalMonthlyCost ?? 0)} />
+              </div>
 
-            {/* Controls Section */}
-            <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <select
-                value={currency}
-                onChange={handleCurrencyChange}
-                className="p-2 border border-slate-600 rounded-md bg-slate-800 text-white focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors"
-              >
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="PKR">PKR</option>
-              </select>
-
-              {user?.role === 'hr' && (
-                <button
-                  onClick={() => dispatch(openAddEmployeeDrawer(null))}
-                  className="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-md flex items-center gap-2 transition-colors"
+              {/* Controls Section */}
+              <div className="flex items-center gap-4 mt-4 md:mt-0">
+                <select
+                  value={currency}
+                  onChange={handleCurrencyChange}
+                  className="p-2 border border-slate-600 rounded-md bg-slate-800 text-white focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors"
                 >
-                  <PlusCircle size={18} /> Add Employee
-                </button>
-              )}
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="PKR">PKR</option>
+                </select>
+
+                {user?.role === 'hr' && (
+                  <button
+                    onClick={() => dispatch(openAddEmployeeDrawer(null))}
+                    className="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-md flex items-center gap-2 transition-colors"
+                  >
+                    <PlusCircle size={18} /> Add Employee
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </header>
     </>
   );

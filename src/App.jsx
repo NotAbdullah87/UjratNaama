@@ -1,34 +1,53 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEmployees } from './slices/employeesSlice.js';
 import { fetchPayrollSummary } from './slices/payrollSummarySlice.js';
-
-import {Header} from './components/Header.jsx';
-import {Dashboard} from './components/Dashboard.jsx';
-import {Charts} from './components/Charts.jsx';
-import {AddEmployeeDrawer} from './components/AddEmployeeDrawer.jsx';
-import {AddHolidayDialog} from './components/AddHolidayDialog';
+import { Header } from './components/Header.jsx';
+import { Dashboard } from './components/Dashboard.jsx';
+import { Charts } from './components/Charts.jsx';
+import { AddEmployeeDrawer } from './components/AddEmployeeDrawer.jsx';
+import { AddHolidayDialog } from './components/AddHolidayDialog.jsx';
+import Sidebar from './components/Sidebar.jsx';
 
 function App() {
   const dispatch = useDispatch();
   const currency = useSelector((state) => state.ui.currency);
+  const [activeView, setActiveView] = useState('dashboard');
 
   useEffect(() => {
     dispatch(fetchEmployees());
     dispatch(fetchPayrollSummary(currency));
   }, [dispatch, currency]);
 
+  const renderView = () => {
+    switch (activeView) {
+      case 'employees':
+        return <div>Employees View</div>;
+      case 'holidays':
+        return <div>Holidays View</div>;
+      default:
+        return (
+          <>
+            <Dashboard />
+            <Charts />
+          </>
+        );
+    }
+  };
+
   return (
-    <div className="bg-gray-100 w-full m-0 min-h-screen p-0 md:p-0">
-      <div className="container mx-auto space-y-8">
+    <div className="flex h-screen bg-gray-100">
+      <Sidebar onNavigate={setActiveView} />
+      <div className="flex-1 max-sm:ml-0 ml-12 flex flex-col overflow-hidden">
+        <div className="max-sm:ml-0 ml-6">
         <Header />
-        <main>
-          <Dashboard />
-          <Charts />
+        </div>
+        <main className="flex-1 overflow-x-hidden overflow-y-auto p-4">
+          {renderView()}
         </main>
+        <AddEmployeeDrawer />
+        <AddHolidayDialog />
       </div>
-      <AddEmployeeDrawer />
-      <AddHolidayDialog />
     </div>
   );
 }
