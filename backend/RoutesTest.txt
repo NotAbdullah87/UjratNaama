@@ -1,0 +1,19 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "hradmin",
+  "password": "password123",
+  "role": "hr"
+}
+
+Status : Working ( Duplicate Check, Error's Check, Sanitization)
+
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "hradmin",
+  "password": "password123"
+}
