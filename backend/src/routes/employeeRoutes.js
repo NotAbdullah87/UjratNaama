@@ -15,12 +15,14 @@ const {
   validateHoliday
 } = require('../middleware/validation');
 
+router.get('/', getEmployees);
+
 // All routes require authentication
 router.use(authenticate);
 
 // Employee routes
 router.post('/', authorize('hr'), validateEmployee, createEmployee);
-router.get('/', getEmployees);
+
 router.patch('/:id', authorize('hr'), validateEmployeeUpdate, updateEmployee);
 router.delete('/:id', authorize('hr'), deleteEmployee);
 
