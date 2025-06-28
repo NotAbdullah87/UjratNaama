@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        nastaliq: ['"Noto Nastaliq Urdu"', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

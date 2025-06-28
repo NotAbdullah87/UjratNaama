@@ -19,7 +19,7 @@ function App() {
   }, [dispatch, currency]);
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4 md:p-8">
+    <div className="bg-gray-100 w-full m-0 min-h-screen p-0 md:p-0">
       <div className="container mx-auto space-y-8">
         <Header />
         <main>
