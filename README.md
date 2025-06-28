@@ -1,70 +1,100 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🧾 Ujrat Naama (اجرت نامہ)  
+**Smart Payroll, Hourly-Cost & Holiday Tracker**
 
-## Available Scripts
+🔗 **Link to Deployed Project**: [https://ujratnaama.vercel.app/](https://ujratnaama.vercel.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📖 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Ujrat Naama** is a modern, all-in-one payroll and time tracking system designed for **small businesses**, **teams**, **freelancers**, and **HR professionals**. With a focus on **automation** and **transparency**, Ujrat Naama simplifies the process of managing **employee wages**, **attendance**, **hourly costs**, and **leaves** — helping teams save time and stay compliant.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Whether you're calculating wages, tracking leaves, or managing your team's work logs — Ujrat Naama offers a **clean**, **intuitive interface** backed by **robust logic** to handle real-world payroll scenarios.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔑 Key Features
 
-### `npm run build`
+- ⏱ **Hourly Tracking**  
+  Log working hours for each employee and keep an accurate record of daily performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 💸 **Payroll Calculator**  
+  Automatically calculate wages based on hourly/daily/monthly rates, including overtime and deductions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 🗓 **Leave & Holiday Management**  
+  Track paid/unpaid leaves, national holidays, and generate accurate pay slips accordingly.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 📈 **Monthly Summaries**  
+  Generate clear reports showing employee performance, work hours, payroll amounts, and leaves taken.
 
-### `npm run eject`
+- 📤 **Exportable Reports**  
+  Export payroll data to Excel or PDF for accounting, audits, or HR recordkeeping.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 🔐 **Secure Data Handling**  
+  All employee data is managed securely with access controls and optional cloud-based storage.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 🌐 **Multi-language Friendly**  
+  Built with multilingual support in mind — especially suitable for **Urdu/English hybrid** business environments.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Use Cases
 
-## Learn More
+- Small business owners managing **daily wage or hourly workers**
+- Freelancers tracking their own **billable hours**
+- HR teams handling **attendance**, **leave requests**, and **payroll**
+- Project managers monitoring **time and cost** per employee or task
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠 Tech Stack
 
-### Code Splitting
+- **Frontend:** React.js (Tailwind CSS for styling)  
+- **Backend:** Node.js / Express  
+- **Database:** MongoDB  
+- **Auth:** JWT  
+- **Deployment:** Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📦 Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. Clone the repository
+```bash
+git clone https://github.com/NotAbdullah87/ujratnaama.git
+cd ujratnaama
+````
 
-### Making a Progressive Web App
+### 2. Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm install
+```
 
-### Advanced Configuration
+### 3. Configure environment variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Create a `.env` file and add your database URL, API keys, JWT secret, etc.
 
-### Deployment
+### 4. Run the app locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm start
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🤝 Contributing
+
+We welcome contributions!
+If you'd like to suggest a feature, fix a bug, or help improve the project, feel free to open an issue or submit a pull request.
+Let’s build a more organized and fair payroll system together.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+See the [LICENSE](./LICENSE) file for details.
+
+
