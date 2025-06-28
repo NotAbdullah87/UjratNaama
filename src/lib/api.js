@@ -9,7 +9,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 // src/lib/api.js
 export const loginUser = async (email, password) => {
-  const res = await fetch(`http://192.168.1.5:5000/api/auth/login`, {
+  const res = await fetch(`https://payroll-backend-zeta.vercel.app/api/auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export const fetchEmployees = async (filters = {}) => {
   // const url = `${process.env.API_ROUTE}/api/employees${query ? `?${query}` : ''}`;
   // const url = "http://192.168.1.5:5000/api/employees" + (query ? `?${query}` : '');
 
-  const url = "http://192.168.1.5:5000/api/employees"
+  const url = "https://payroll-backend-zeta.vercel.app/api/employees"
   try {
     const res = await fetch(url, {
       method: 'GET',
@@ -62,7 +62,7 @@ export const fetchEmployees = async (filters = {}) => {
 export const fetchPayrollSummary = async (currency) => {
   try {
     const month = '2025-06'; // You can make this dynamic if needed
-    const url = `http://192.168.1.5:5000/api/payroll/summary?month=${month}&currency=${currency}`;
+    const url = `https://payroll-backend-zeta.vercel.app/api/payroll/summary?month=${month}&currency=${currency}`;
 
     const res = await fetch(url, {
       method: 'GET',
@@ -92,7 +92,7 @@ export const fetchPayrollSummary = async (currency) => {
 
 export const deleteHoliday = async (holidayId, token) => {
   try {
-    const res = await fetch(`http://192.168.1.5:5000/api/holidays/${holidayId}`, {
+    const res = await fetch(`https://payroll-backend-zeta.vercel.app/api/holidays/${holidayId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`
@@ -115,7 +115,7 @@ export const deleteHoliday = async (holidayId, token) => {
 export const addHoliday = async (payload,token) => {
   try {
     // console.log('API CALL: addHoliday', payload,payload.token);
-    const response = await fetch('http://192.168.1.5:5000/api/holidays', {
+    const response = await fetch('https://payroll-backend-zeta.vercel.app/api/holidays', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ export const createEmployee = async (employeeData, token) => {
       },
     };
     console.log(payload);
-    const response = await fetch(`http://192.168.1.5:5000/api/employees`, {
+    const response = await fetch(`https://payroll-backend-zeta.vercel.app/api/employees`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ export const createEmployee = async (employeeData, token) => {
  */
 export const updateEmployee = async (id, updateData, token) => {
   try {
-    const response = await fetch(`http://192.168.1.5:5000/api/employees/${id}`, {
+    const response = await fetch(`https://payroll-backend-zeta.vercel.app/api/employees/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -208,7 +208,7 @@ export const updateEmployee = async (id, updateData, token) => {
 
 
 export const deleteEmployee = async (id, token) => {
-  const response = await fetch(`http://192.168.1.5:5000/api/employees/${id}`, {
+  const response = await fetch(`https://payroll-backend-zeta.vercel.app/api/employees/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
